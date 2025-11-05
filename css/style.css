@@ -78,16 +78,6 @@
    box-shadow: 0 0 0 var(--color-sun);
 }
 
-.bg {
-   position: absolute;
-   inset: auto 0 0 0; /* inset egenskaben undersøger den studerende  */
-   width: 100%;
-   height: 28vh;
-   background: url(../img/bg.png);
-   background-size: 100vw auto;
-   background-repeat: repeat-x; /* Den studerende undersøger egenskaber - background-repeat */
-   animation: animationBg 17s linear infinite;
-}
 
 /* :before undersøge den studerende selv - hvad den gør */
 .scene.night .sun:before {
@@ -102,17 +92,28 @@
 }
 
 
-
-
-
 /* ---------------------------------------------------------
    Baggrund (parallax)
    - Brug vw i animationen: 0 → -100vw
    - Sæt background-size til 100vw for at matche bevægelse
 --------------------------------------------------------- */
+.bg {
+   position: absolute;
+   inset: auto 0 0 0; /* inset egenskaben undersøger den studerende  */
+   width: 100%;
+   height: 280px;
+   background: url(../img/bg.png);
+   background-size: 100vw auto;
+   background-repeat: repeat-x; /* Den studerende undersøger egenskaber - background-repeat */
+   animation: animateBg 17s linear infinite;
+}
 
+/* Flyt hele flisen en view-port til venstre */
 
-
+@keyframes animateBg {
+   0%   { background-position-x: 0; }
+   100% { background-position-x: -100vw; }
+}
 
 
 /* ---------------------------------------------------------
@@ -121,7 +122,21 @@
    - vw/vh til placering og ALLE animationsafstande
 --------------------------------------------------------- */
 
+.car1 {
+  position: absolute;
+   bottom: 2.8vh;
+   width: var(--car-w);
+   max-width: 28vw;
+   z-index: 1;
+   left: calc(-1 * var(--off-car1));
+   animation: car1 18s linear infinite;
+}
 
+@keyframes car1 {
+  0%   { transform: translateX(0); }
+  90%,
+  100% { transform: translateX(calc(100vw + var(--off-car1))); }
+}
 
 
 
