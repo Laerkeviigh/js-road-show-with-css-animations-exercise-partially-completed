@@ -138,7 +138,21 @@
   100% { transform: translateX(calc(100vw + var(--off-car1))); }
 }
 
+.car2 {
+  position: absolute;
+  bottom: 2.8vh;
+  width: var(--car-w);
+  max-width: 28vw;
+  z-index: 1;
+  right: calc(-1 * var(--off-car2));
+  animation: car2 12s linear infinite;
+}
 
+@keyframes car2 {
+  0%   { transform: translateX(0) rotateY(180deg); }
+  90%,
+  100% { transform: translateX(calc(-100vw - var(--off-car2))) rotateY(180deg); }
+}
 
 /* car3: venstre → højre (spejlvendt) */
 .car3 {
