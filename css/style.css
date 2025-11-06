@@ -170,3 +170,61 @@
   0%   { transform: translateX(0) rotateY(180deg); }
   100% { transform: translateX(calc(100vw + var(--off-car3))) rotateY(180deg); }
 }
+
+
+/* car4: venstre → højre (spejlvendt) */
+.car4 {
+  position: absolute;
+  bottom: -5.4vh;
+  width: var(--car-w);
+  max-width: 28vw;
+  z-index: 1;
+  left: calc(-1 * var(--off-car1));
+  will-change: transform;
+  animation: car4 16s linear infinite;
+}
+
+@keyframes car4 {
+  0%   { transform: translateX(0) rotateY(180deg); }
+  100% { transform: translateX(calc(100vw + var(--off-car3))) rotateY(180deg); }
+}
+
+.car5 {
+  position: absolute;
+   bottom: 0.1vh;
+   width: var(--car-w);
+   max-width: 28vw;
+   z-index: 1;
+   left: calc(-1 * var(--off-car1));
+   animation: car5 6s linear infinite;
+}
+
+@keyframes car5 {
+  0%   { transform: translateX(0) rotateY(180deg); }
+  100% { transform: translateX(calc(100vw + var(--off-car3))) rotateY(180deg); }
+}
+
+
+.toolTip {
+   position: fixed;
+   right: 16px;
+   bottom: 16px;
+   background-color: rgba(0,0,0,0.85);
+   color: #fff;
+   padding: 10px 12px;
+   border-radius: 8px;
+   font-size: 14px;
+   line-height: 1.35;
+   max-width: min(320px, 90vw);
+   box-shadow: 0 8px 220px rgba(0,0,0,0.25);
+   opacity: 0;
+   transform: translateY(8px);
+   transition: opacity 0.25s ease, transform 0.25s ease;
+   pointer-events: none; /* så den ikke fanger når du flytter musen henover */
+   z-index: 1000;
+}  
+
+.toolTip.is-visible {
+   opacity: 1;
+   transform: translateY(0);
+}
